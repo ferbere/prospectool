@@ -1,0 +1,38 @@
+<?php
+
+valores de pagado{
+	0=>'no pagado';
+	1=>'pagado';
+	2=>'cancelado';	
+	3=>'cierra cuenta'(a domicilio);
+	4=>'entregado';
+	5=>'no entregado';
+	6=>'cliente lo recoge';
+	pedidos
+	10=>'no pagado';
+	11=>'pagado';
+	12=>'cancelado';	
+	14=>'entregado';
+	15=>'no entregado';
+	16=>'cliente lo recoge	';
+}
+
+caja{
+	domicilio{
+		while($estatus==0){//estatus impago;
+			ordenar;
+			cancelar;
+			cerrar pedido;
+		}
+		while($status==3){//Se cierra pedido;
+			asigna a repartidor;
+			recoge en local;
+		}
+		while($status==4){//Asigna a repartidor;
+			entregado pagado;
+			no entregado;
+			notas;
+		}
+	}
+}
+

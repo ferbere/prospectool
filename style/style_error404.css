@@ -1,0 +1,75 @@
+footer{
+	bottom: 0px;
+	position: fixed;
+}
+#bing{
+	background: white;
+	box-shadow: inset 0px 0px 3px 2px rgba(0,0,0,0.6);
+	height: 500px;
+	margin: 0px auto;
+	padding-top: 100px;
+}
+
+#opinion{
+	margin: 0px auto;
+	padding-top: 50px;
+	width:80%;
+}
+#opinion_tit{
+	font-size: 2.5em;
+	color: rgba(80,90,80,1);
+	font-weight:normal;
+	text-align: center;
+}
+#autor{
+	font-size:0.8em;
+	font-style:italic;
+	text-align:right;
+}
+#contenido{
+
+}
+#contenido img{
+	border-radius:10px;
+	box-shadow:1px 1px 5px 1px #000;
+		float:left;
+	margin-right:20px;
+	width:200px;
+}
+#contenido p{
+	text-indent:4em;
+	text-align: justify;
+}
+/* anteriores */
+#opinion_ant{
+	margin: 0px auto;
+	width: 80%;
+}
+#opinion_ant_sec{
+	font-size: 1.5em;
+	color: rgba(80,90,80,1);
+	font-weight:normal;
+	text-align: center;
+}
+#opinion_ant_img,#opinion_ant_cont{
+	display: inline-block;
+	vertical-align: top;
+}
+#opinion_ant_img{
+	width: 10%;
+}
+#opinion_ant_img img{
+	width: 100%;
+}
+#opinion_ant_cont{
+	padding-left: 20px;
+	text-align: justify;
+	width: 70%;
+}
+#opinion_ant_tit{
+	font-size: 1.2em;
+
+	font-weight:bold;
+	text-align: left;
+}
+/* termina anteriores */

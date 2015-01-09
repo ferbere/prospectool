@@ -1,0 +1,1 @@
+<div id="logo">{bann2}</div>

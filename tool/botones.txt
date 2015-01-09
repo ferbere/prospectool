@@ -1,0 +1,53 @@
+<?php
+home("superior"){
+	inicio;
+	admin;
+	restaurante;
+	contacto;
+}
+Reparto(){
+	pedidos_domicilio("D. inferior"){
+		entregado;
+		no entregado;
+		notas;
+	}
+}
+Mesero(){
+	mesas(I.inferior){
+		ordenar;
+		cancelar;@
+	}
+	control(Inferior){
+		control de mesas;
+	}
+}
+Caja(){
+	mesas(I.inferior){
+		ordenar;
+		cancelar@;
+		pagado;
+		imprimir;
+	}
+	pedidos_domicilio(D.inferior){
+		ordenar;
+		cancelar@;
+		cerrar pedido;
+>>		pagado;
+		asigna a repartidor;
+	}
+	control(Inferior){
+		control de mesas;
+		domicilio;
+		pedido;
+	}
+}
+Gerente(I. superior){
+	
+}
+Admin(Inferior){
+
+}
+Extras(Central){
+	cancelar;
+}
+?>

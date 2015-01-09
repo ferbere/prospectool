@@ -1,0 +1,51 @@
+<?php
+session_start();
+	include_once('../../../classes/conex.php');
+	$link=Conectarse();
+	if(isset($_POST['user'])){
+		$user=addslashes(trim($_POST['user']));
+	}
+	if(isset($_POST['passwd'])){
+		$passwd=md5(addslashes(trim($_POST['passwd'])));
+	}
+	if(isset($_POST['nombre'])){
+		$nombre=($_POST['nombre']);
+	}
+	if(isset($_POST['imagen'])){
+		$imagen=($_POST['imagen']);
+	}
+	if(isset($_POST['rango'])){
+		$rango=($_POST['rango']);
+	}
+	if(isset($_POST['email'])){
+		$email=($_POST['email']);
+	}
+	if(isset($_POST['telefono'])){
+		$telefono=($_POST['telefono']);
+	}
+	if(isset($_POST['celular'])){
+		$celular=($_POST['celular']);
+	}
+	if(isset($_POST['domicilio'])){
+		$domicilio=($_POST['domicilio']);
+	}
+	if(isset($_POST['poblacion'])){
+		$poblacion=($_POST['poblacion']);
+	}
+	if(isset($_POST['estado'])){
+		$estado=($_POST['estado']);
+	}
+	if(isset($_POST['redes'])){
+		$redes=($_POST['redes']);
+	}
+	if(isset($_POST['discipulos'])){
+		$discipulos=($_POST['discipulos']);
+	}
+	$mysql=mysql_query("INSERT INTO activismo_index (user,passwd,nombre,imagen,rango,email,telefono,celular,domicilio,poblacion,estado,redes,discipulos) values ('{$user}','{$passwd}','{$nombre}','{$imagen}','{$rango}','{$email}','{$telefono}','{$celular}','{$domicilio}','{$poblacion}','{$estado}','{$redes}','{$discipulos}')",$link);
+	if(!$mysql){
+		die ("Pos no se capturó el contenido, parece que: " .mysql_error());
+	}else{
+		echo '<script>window.location.href="sesion.php?ruta=exe_activate.php&mail='.$mail.'&nombre='.$nombre.'&";</script>';
+	exit();
+	}
+?>

@@ -1,0 +1,1 @@
+INSERT INTO `menus_botones` VALUES ('','Admin',7,'admin.png','../admin',1,0,1),('','Admin',7,'admin.png','../admin',2,0,1),('','Admin',7,'admin.png','../admin',3,0,1),('','Admin',7,'admin.png','../admin',4,0,1),('','Admin',7,'admin.png','../admin',5,0,1);
