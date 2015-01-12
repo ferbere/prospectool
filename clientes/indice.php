@@ -1,0 +1,23 @@
+<?php
+/* Es el indice de clientes.php */
+if(isset($_POST['ruta'])){
+	$ruta=$_POST['ruta'];
+}
+if(isset($_GET['ruta'])){
+	$ruta=$_GET['ruta'];
+}
+if(isset($_POST['form'])){
+	$form=$_POST['form'];
+}
+if(isset($_GET['form'])){
+	$form=$_GET['form'];
+}
+if(!empty($ruta)){
+	include($ruta.'.php');
+}else{
+	if($form=='if'){
+		include("if_prospecto.php");		
+	}else{
+	}
+}
+?>

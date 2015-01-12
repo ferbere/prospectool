@@ -3,8 +3,8 @@ class t_d_venta{
 public $url='';
 public function __construct($ruta){
 		session_start();	
-		include_once("../classes/restaFechasD.class.php");
-		include_once("../classes/mysql.php");
+		include_once("classes/restaFechasD.class.php");
+		include_once("classes/mysql.php");
 		$this->mysql=new MySQL();
 		$this->ruta=$ruta;
 	}

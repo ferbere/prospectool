@@ -1,0 +1,16 @@
+INSERT INTO `menus_botones` (nombre,ruta,posicion,privilegios,visible) VALUES 
+('Agrega ediciÃ³n','if_edicion.php',1,10,1),
+('Modifica ediciÃ³n','bus_edicion.php',1,10,1),
+('Modifica ediciÃ³n INVI','if_edicion_a.php',1,10,1),
+('Agrega temporada','if_temporadas.php',1,10,0),
+('Edita temporada','bus_temporadas.php',1,10,0),
+('Edita temporada INVI','if_temporadas_a.php',1,10,0),
+('Agrega cargo','if_cargo.php',1,10,1),
+('Edita cargo','bus_cargo.php',1,10,1),
+('Edita cargo INVI','if_cargo_a.php',1,10,1),
+('Agrega perspectiva','if_perspectiva.php',1,10,1),
+('Edita perspectiva','bus_perspectiva.php',1,10,1),
+('Edita perspectiva INVI','if_perspectiva_a.php',1,10,1),
+('Agrega anuncio','if_anuncio.php',1,10,1),
+('Edita anuncio','bus_anuncio.php',1,10,1),
+('Edita anuncio INVI','if_anuncio_a.php',1,10,1);

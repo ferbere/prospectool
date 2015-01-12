@@ -3,6 +3,7 @@
 <head>
 <title>{title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="style/style.css" />
 <link rel="stylesheet" type="text/css" href="style/style_tool.css" />
 <link rel="stylesheet" type="text/css" href="style/{css}" />
 <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />

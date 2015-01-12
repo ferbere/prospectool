@@ -1,9 +1,9 @@
 <?php
 session_start();
 echo '<div id="sesion_1" style="padding-top:5em">';
-if($_SESSION['activista']!=''){
-	echo '<div align="center"><a href="enelcampo.php">Entrar al sistema</a><br><br>';
-	echo '<br> Bienvenido '.$_SESSION['activista'].'<br>';
+if($_SESSION['user']!=''){
+	echo '<div align="center"><a href="index.php">Entrar al sistema</a><br><br>';
+	echo '<br>'.$_SESSION['user'].', te bienvenimos.<br>';
 	echo '<br><a href="sesion.php?ruta=destroy_sesion.php">Cerrar la sesión</a></div>';
 }else{
 	if(isset($_POST['capturado'])){
@@ -29,9 +29,9 @@ if($_SESSION['activista']!=''){
 		}else{
 			include("sesion/login_this.php");
 			echo 	'<div style="margin:0 auto; text-align:center">';
-			echo 		'<a href="sesion.php?ruta=account.php">';
+/*			echo 		'<a href="sesion.php?ruta=account.php">';
 			echo 			'Crear cuenta';
-			echo 		'</a>';
+			echo 		'</a>';*/
 			echo 	'</div>';	
 		}
 	}elseif(!empty($capturado)&&($_SESSION['ip']=='')){

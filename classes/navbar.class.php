@@ -20,8 +20,8 @@ class navBar{
 		return $this->vale;
 	}
 	public function bTn(){//¿Cabe el usuario en los Privilegios requeridos?
-		$this->catch ='<ul>';
 		$sql = $this->mysql->consulta("SELECT nombre,privilegios,imagen,ruta FROM menus_botones WHERE visible = 1 AND posicion = ".$this->posicion." AND submenu = ".$this->evento." ORDER BY id ASC");
+		$it=0;
 		while($row = $this->mysql->fetch_array($sql)){
 			$e=1;
 			$y=$this->vale;
@@ -65,18 +65,18 @@ class navBar{
 				}
 			}
 			if($emma==true){
-				$this->catch .=		'<li>';
-				$this->catch .=			'<a href="'.$row[3].'">';
-				$this->catch .= 			$row[0];
-				$this->catch .=			'</a>';
-				$this->catch .=		'</li>';
+				$it=$it+1;
+				$catch[1][$it] =	$row[0];
+				$catch[2][$it] =	$row[1];
+				$catch[3][$it] =	$row[2];
+				$catch[4][$it] =	$row[3];
 				$emma=false;
 			}else{
-				$this->catch .=null;
+
 			}
 		}
-		$this->catch .='</ul>';
-		return $this->catch;
+		$catch[0]=$it;
+		return $catch;
 	}
 }
 ?>

@@ -13,7 +13,7 @@ public function __construct($url_viene,$ruta,$dep){
 		$this->dep=$dep;
 	}
 	public function dV(){
-		$sql_array=array(0=>"Id",1=>"Empresa",2=>"Ciudad",3=>"Car&aacute;cter",4=>"Se interes&oacute;",5=>"Perspectiva de venta",6=>"Regresar en... (d&iacute;as)",7=>"Fecha",8=>"Vendedor");
+		$sql_array=array(0=>"Orden",1=>"Empresa",2=>"Ciudad",3=>"Car&aacute;cter",4=>"Se interes&oacute;",5=>"Perspectiva de venta",6=>"Regresar en... (d&iacute;as)",7=>"Fecha",8=>"Vendedor");
 		$s_a=array(0=>"prospecta_directorio.id",1=>"prospecta_directorio.empresa",2=>"general_municipios.nombre",3=>"prospecta_caracter.nombre",4=>"general_sino.nombre",5=>"prospecta_perspectiva.nombre",6=>"prospecta_visita.resuelve",7=>"prospecta_visita.fecha",8=>"usuario_index.nombre");
 		if($this->ruta=='dia'){
 			$fech=" WHERE DATE(prospecta_visita.createtime) = date(NOW()) ";
@@ -29,7 +29,7 @@ public function __construct($url_viene,$ruta,$dep){
 		if($_SESSION['privilegioss_id']<=4){
 			$muestra='';
 		}else{
-			$muestra=" WHERE prospecta_visita.vendedor = ".$_SESSION['id'];
+			$muestra=" AND prospecta_visita.vendedor = ".$_SESSION['id'];
 		}
 		if(isset($_GET['orden'])){
 			$orden=$_GET['orden'];
@@ -40,11 +40,9 @@ public function __construct($url_viene,$ruta,$dep){
 			$query=' ORDER BY '.$s_a[$orden].' ASC ';
 		}
 			$hoy=date('Y-m-d');
-
-		$sql=$this->mysql->consulta("SELECT prospecta_visita.id,prospecta_directorio.empresa,general_municipios.nombre,prospecta_caracter.nombre,general_sino.nombre,prospecta_perspectiva.nombre,prospecta_visita.resuelve,date_format(prospecta_visita.createtime,'%W %d, %M %Y'),usuario_index.nombre,prospecta_visita.createtime,prospecta_visita.concrecion FROM prospecta_visita INNER JOIN prospecta_directorio ON prospecta_visita.empresa = prospecta_directorio.id INNER JOIN general_municipios ON prospecta_directorio.ciudad = general_municipios.id INNER JOIN prospecta_caracter ON prospecta_directorio.caracter = prospecta_caracter.id INNER JOIN general_sino ON prospecta_visita.se_intereso = general_sino.id INNER JOIN prospecta_perspectiva ON prospecta_directorio.perspectiva = prospecta_perspectiva.id INNER JOIN usuario_index ON prospecta_visita.vendedor = usuario_index.id ".$fech.$muestra.$query);
-
-
-
+		mysql_query('set @numero=0');
+		$sql=$this->mysql->consulta("SELECT @numero:=@numero+1 AS enum,prospecta_directorio.empresa,general_municipios.nombre,prospecta_caracter.nombre,general_sino.nombre,prospecta_perspectiva.nombre,prospecta_visita.resuelve,date_format(prospecta_visita.createtime,'%W %d, %M %Y'),usuario_index.nombre,prospecta_visita.createtime,prospecta_visita.concrecion,prospecta_visita.id FROM prospecta_visita INNER JOIN prospecta_directorio ON prospecta_visita.empresa = prospecta_directorio.id INNER JOIN general_municipios ON prospecta_directorio.ciudad = general_municipios.id INNER JOIN prospecta_caracter ON prospecta_directorio.caracter = prospecta_caracter.id INNER JOIN general_sino ON prospecta_visita.se_intereso = general_sino.id INNER JOIN prospecta_perspectiva ON prospecta_directorio.perspectiva = prospecta_perspectiva.id INNER JOIN usuario_index ON prospecta_visita.vendedor = usuario_index.id ".$fech.$muestra.$query);
+		
 		/* Query{
 			0=id;
 			1=empresa;
@@ -73,7 +71,7 @@ public function __construct($url_viene,$ruta,$dep){
 			$fecha_pactada = date ('Y-m-d',$fecha_pactada);
 			$rEstaf=rEstaf($fecha_pactada);
 			$dfecha=$rEstaf[1];
-			$ruta_lki='<td id="dis_visita_cont"><a href="'.$this->url.'?ruta='.$this->ruta.'&form=1&rubro='.$row[0].'">';
+			$ruta_lki='<td id="dis_visita_cont"><a href="'.$this->url.'?ruta='.$this->ruta.'&form=1&rubro='.$row[11].'">';
 			$ruta_lkf='</a></td>';
 		$catch .= '<tr>';
 			for($i=0;$i<=8;$i++){

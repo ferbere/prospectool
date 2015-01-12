@@ -1,0 +1,19 @@
+<?php
+session_start();
+if(isset($_POST['ruta'])){
+	$ruta=$_POST['ruta'];
+}
+if(isset($_GET['ruta'])){
+	$ruta=$_GET['ruta'];
+}
+if(isset($_POST['form'])){
+	$form=$_POST['form'];
+}
+if(isset($_GET['form'])){
+	$form=$_GET['form'];
+}
+if(empty($form)){
+	include('dis_mas.php');
+}else{
+	include($ruta.'.php');
+}

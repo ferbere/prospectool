@@ -5,5 +5,5 @@ if(isset($_GET['ruta'])){
 if(empty($ruta)){
 	$ruta='session.php';
 }
-		include($ruta);
+include($ruta);
 ?>

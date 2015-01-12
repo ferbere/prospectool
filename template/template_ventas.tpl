@@ -3,6 +3,7 @@
 <head>
 <title>{title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style/style.css" />
 <link rel="stylesheet" type="text/css" href="style/{css}" />
 </head>
 <body>
@@ -14,6 +15,7 @@
 		<div id="header2">{navbar}</div>
 	</header>
 <div id="bing">
+			<div id="main_tit">{tit_maincontent}</div>			
 			<div id="main">{main_object}</div>
 			<div id="foot">{footer}</div>
 </div><!--termina bing-->

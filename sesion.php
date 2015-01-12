@@ -1,4 +1,4 @@
 <?php
-include("sesion/main_index.php");
+include("main.php");
 //include("sesion/contained.php");
 ?>

@@ -1,7 +1,7 @@
 <?php
 class templateParser {
     var $output;
-    function templateParser($templateFile='plantillas/tem.tpl'){
+    function templateParser($templateFile){
           (file_exists($templateFile))?$this->output=file_get_contents($templateFile):die('Error:Template file '.$templateFile.' not found');
     }
     function parseTemplate($tags=array()){

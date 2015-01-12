@@ -23,7 +23,7 @@ public function __construct($url_viene,$ruta,$dep,$cambio){
 	}
 	public function dV(){
 		$sql_array=array(0=>"Id",1=>"Empresa",2=>"Vendedor",3=>"Edici&oacute;n",4=>"anuncio",5=>"pagado",6=>"Fecha");
-		$s_a=array(0=>"prospecta_concrecion.id",1=>"prospecta_directorio.empresa",2=>"usuario_index.nombre",3=>"prospecta_concrecion.edicion",4=>"prospecta_anuncio.nombre",5=>"prospecta_concrecion.pagado",6=>"prospecta_visita.fecha");
+		$s_a=array(0=>"prospecta_concrecion.id",1=>"prospecta_directorio.empresa",2=>"prospecta_usuario.nombre",3=>"prospecta_concrecion.edicion",4=>"prospecta_anuncio.nombre",5=>"prospecta_concrecion.pagado",6=>"prospecta_visita.fecha");
 		$cuent=count($sql_array);
 		if($this->ruta=='dia'){
 			$fech=" WHERE DATE(prospecta_concrecion.createtime) = date(NOW()) ";
@@ -39,7 +39,7 @@ public function __construct($url_viene,$ruta,$dep,$cambio){
 		if($_SESSION['privilegioss_id']<=4){
 			$muestra='';
 		}else{
-			$muestra=" WHERE prospecta_concrecion.vendedor = ".$_SESSION['id'];
+			$muestra=" AND prospecta_concrecion.vendedor = ".$_SESSION['id'];
 		}
 		if(isset($_GET['orden'])){
 			$orden=$_GET['orden'];
@@ -52,7 +52,7 @@ public function __construct($url_viene,$ruta,$dep,$cambio){
 		}
 			$hoy=date('Y-m-d');
 
-		$sql=$this->mysql->consulta("SELECT prospecta_concrecion.id,prospecta_directorio.empresa,usuario_index.nombre,prospecta_concrecion.edicion,prospecta_anuncio.nombre,general_sino.nombre,prospecta_concrecion.createtime FROM prospecta_concrecion INNER JOIN prospecta_directorio ON prospecta_concrecion.empresa = prospecta_directorio.id INNER JOIN usuario_index ON prospecta_concrecion.vendedor = usuario_index.id INNER JOIN prospecta_anuncio ON prospecta_concrecion.anuncio = prospecta_anuncio.id INNER JOIN general_sino ON prospecta_concrecion.pagado = general_sino.id ".$fech.$muestra.$query);
+		$sql=$this->mysql->consulta("SELECT prospecta_concrecion.id,prospecta_directorio.empresa,prospecta_usuario.nombre,prospecta_concrecion.edicion,prospecta_anuncio.nombre,general_sino.nombre,prospecta_concrecion.createtime FROM prospecta_concrecion INNER JOIN prospecta_directorio ON prospecta_concrecion.empresa = prospecta_directorio.id INNER JOIN prospecta_usuario ON prospecta_concrecion.vendedor = prospecta_usuario.id INNER JOIN prospecta_anuncio ON prospecta_concrecion.anuncio = prospecta_anuncio.id INNER JOIN general_sino ON prospecta_concrecion.pagado = general_sino.id ".$fech.$muestra.$query);
 		/* Query{
 			0=id;
 			1=empresa;

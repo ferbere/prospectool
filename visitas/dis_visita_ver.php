@@ -16,7 +16,7 @@ if($_SESSION['privilegioss_id']<=4){
 	$muestra=" AND prospecta_visita.vendedor = ".$_SESSION['id'];
 }
 $sino=array(0=>"No",1=>"S&iacute;");
-$sql=$mysql->consulta("SELECT prospecta_visita.edicion,prospecta_directorio.empresa,prospecta_visita.se_anuncia,prospecta_visita.se_anuncia_d,prospecta_visita.se_anuncia_so,prospecta_visita.se_intereso,prospecta_perspectiva.nombre,prospecta_visita.que_dijo,prospecta_visita.resuelve,prospecta_visita.observaciones_v,usuario_index.nombre,date_format(prospecta_visita.createtime,'%Y-%m-%d'),usuario_index.id,prospecta_visita.concrecion FROM prospecta_visita INNER JOIN prospecta_directorio ON prospecta_visita.empresa = prospecta_directorio.id INNER JOIN prospecta_perspectiva ON prospecta_directorio.perspectiva = prospecta_perspectiva.id INNER JOIN usuario_index ON prospecta_visita.vendedor = usuario_index.id WHERE prospecta_visita.id = ".$rubro.$muestra );
+$sql=$mysql->consulta("SELECT prospecta_visita.edicion,prospecta_directorio.empresa,prospecta_visita.se_anuncia,prospecta_visita.se_anuncia_d,prospecta_visita.se_anuncia_so,prospecta_visita.se_intereso,prospecta_perspectiva.nombre,prospecta_visita.que_dijo,prospecta_visita.resuelve,prospecta_visita.observaciones_v,prospecta_usuario.nombre,date_format(prospecta_visita.createtime,'%Y-%m-%d'),prospecta_usuario.id,prospecta_visita.concrecion FROM prospecta_visita INNER JOIN prospecta_directorio ON prospecta_visita.empresa = prospecta_directorio.id INNER JOIN prospecta_perspectiva ON prospecta_directorio.perspectiva = prospecta_perspectiva.id INNER JOIN prospecta_usuario ON prospecta_visita.vendedor = prospecta_usuario.id WHERE prospecta_visita.id = ".$rubro.$muestra );
 while($row=$mysql->fetch_array($sql)){
 	$edicion = $row[0];
 	$empresa = $row[1];

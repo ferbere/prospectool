@@ -203,6 +203,7 @@ label{
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
+/* botonera index { */}
 #nb_tool {
   margin: 0px auto;
   width: 80%;
@@ -229,6 +230,41 @@ label{
   opacity: 0.5;
   text-decoration: none;
 }
+/* } botonera index */
+/* botonera tool { */
+#nb_tool2 {
+  margin: 0px auto;
+  width: 100%;
+}
+#nb_tool2 ul{
+  margin: 0px auto;
+  text-align: center;
+  width: 100%;
+}
+#nb_tool2 li{
+  display: inline-block;
+  margin: 0px auto;
+  list-style: none;
+  text-align: center;
+  width: 180px;
+}
+#nb_tool2 li a{
+  color: rgba(40,40,140,1);
+  font-size: 1em;
+  text-decoration: none;
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;    
+  transition: opacity 0.5s ease-in-out;
+}
+#nb_tool2  li a:hover{
+  font-size: 1em;
+  opacity: 0.5;
+  text-decoration: none;
+}
+/* } botonera tool */
 #st{
   text-align: center;
   width: 100%;
@@ -240,7 +276,31 @@ label{
   text-align: center;
   width: 100%;
 }
+/* } #st_c TEST */
+#status_tit{
+  font-size: 2em;
+  font-weight: bolder;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  text-align: center;
+  width: 80%;
+}
+#status_tit a{
 
+  font-size: 0.8em;
+  text-decoration: none;
+    -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+#status_tit :hover{
+  
+  font-size: 1.2em;
+  text-decoration: none;
+
+}
 #vendido{
   background:rgba(50,150,55,0.8);
   border-radius:50%;
